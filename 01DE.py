@@ -1,96 +1,110 @@
+import glob
 import pandas as pd
-import glob                         # this module helps in selecting files 
-import pandas as pd                 # this module helps in processing CSV files
-import xml.etree.ElementTree as ET  # this module helps in processing XML files.
+import xml.etree.ElementTree as ET
 from datetime import datetime
 
-#set Path
-tmpfile    = "temp.tmp"               # file used to store all extracted data
-logfile    = "logfile.txt"            # all event logs will be stored in this file
-targetfile = "transformed_data.csv"   # file where transformed data is stored
+# Set paths
+TMPFILE = "temp.tmp"
+LOGFILE = "logfile.txt"
+TARGETFILE = "transformed_data.csv"
 
-#Extract
-#CSV Extract Function
+# Extract
+# CSV Extract Function
 def extract_from_csv(file_to_process):
-    dataframe = pd.read_csv(file_to_process)
+    try:
+        dataframe = pd.read_csv(file_to_process)
+    except Exception as e:
+        log(f"Error reading CSV file {file_to_process}: {e}")
+        return None
+
     return dataframe
 
-#JSON Extract Function
+# JSON Extract Function
 def extract_from_json(file_to_process):
-    dataframe = pd.read_json(file_to_process,lines=True)
+    try:
+        dataframe = pd.read_json(file_to_process, lines=True)
+    except Exception as e:
+        log(f"Error reading JSON file {file_to_process}: {e}")
+        return None
+
     return dataframe
 
-#XML Extract Function
+# XML Extract Function
 def extract_from_xml(file_to_process):
-    dataframe = pd.DataFrame(columns=["name", "height", "weight"])
-    tree = ET.parse(file_to_process)
-    root = tree.getroot()
-    for person in root:
-        name = person.find("name").text
-        height = float(person.find("height").text)
-        weight = float(person.find("weight").text)
-        dataframe = dataframe.append({"name":name, "height":height, "weight":weight}, ignore_index=True)
+    try:
+        tree = ET.parse(file_to_process)
+        root = tree.getroot()
+
+        dataframe = pd.DataFrame(columns=["name", "height", "weight"])
+        for person in root:
+            name = person.find("name").text
+            height = float(person.find("height").text)
+            weight = float(person.find("weight").text)
+
+            dataframe = dataframe.append({"name": name, "height": height, "weight": weight}, ignore_index=True)
+    except Exception as e:
+        log(f"Error reading XML file {file_to_process}: {e}")
+        return None
+
     return dataframe
 
-#Extract Function
+# Extract Function
 def extract():
-    extracted_data = pd.DataFrame(columns=['name','height','weight']) # create an empty data frame to hold extracted data
-    
-    #process all csv files
+    extracted_data = pd.DataFrame(columns=["name", "height", "weight"])
+
+    # Process all CSV files
     for csvfile in glob.glob("./source/*.csv"):
-        extracted_data = extracted_data.append(extract_from_csv(csvfile), ignore_index=True)
-        
-    #process all json files
+        extracted_data = pd.concat([extracted_data, extract_from_csv(csvfile)])
+
+    # Process all JSON files
     for jsonfile in glob.glob("./source/*.json"):
-        extracted_data = extracted_data.append(extract_from_json(jsonfile), ignore_index=True)
-    
-    #process all xml files
+        extracted_data = pd.concat([extracted_data, extract_from_json(jsonfile)])
+
+    # Process all XML files
     for xmlfile in glob.glob("./source/*.xml"):
-        extracted_data = extracted_data.append(extract_from_xml(xmlfile), ignore_index=True)
-        
+        extracted_data = pd.concat([extracted_data, extract_from_xml(xmlfile)])
+
     return extracted_data
 
-#Transform
+# Transform
 def transform(data):
-        #Convert height which is in inches to millimeter
-        #Convert the datatype of the column into float
-        #data.height = data.height.astype(float)
-        #Convert inches to meters and round off to two decimals(one inch is 0.0254 meters)
-        data['height'] = round(data.height * 0.0254,2)
-        
-        #Convert weight which is in pounds to kilograms
-        #Convert the datatype of the column into float
-        #data.weight = data.weight.astype(float)
-        #Convert pounds to kilograms and round off to two decimals(one pound is 0.45359237 kilograms)
-        data['weight'] = round(data.weight * 0.45359237,2)
-        return data
+    # Convert height which is in inches to millimeter
+    data["height"] = data["height"] * 25.4
 
-#loading
-def load(targetfile,data_to_load):
-    data_to_load.to_csv(targetfile)  
+    # Convert weight which is in pounds to kilograms
+    data["weight"] = data["weight"] * 0.45359237
 
-#logging
+    return data
+
+# Load
+def load(targetfile, data_to_load):
+    try:
+        data_to_load.to_csv(targetfile, index=False)
+    except Exception as e:
+        log(f"Error loading data to CSV file {targetfile}: {e}")
+
+# Logging
 def log(message):
-    timestamp_format = '%Y-%h-%d-%H:%M:%S' # Year-Monthname-Day-Hour-Minute-Second
-    now = datetime.now() # get current timestamp
+    timestamp_format = "%Y-%h-%d-%H:%M:%S"
+    now = datetime.now()
     timestamp = now.strftime(timestamp_format)
-    with open("logfile.txt","a") as f:
-        f.write(timestamp + ',' + message + '\n')
 
-#running ETL process
+    with open(LOGFILE, "a") as f:
+        f.write(f"{timestamp},{message}\n")
+
+# Running ETL process
 log("ETL Job Started")
+
 log("Extract phase Started")
 extracted_data = extract()
 log("Extract phase Ended")
-extracted_data
 
 log("Transform phase Started")
 transformed_data = transform(extracted_data)
 log("Transform phase Ended")
-transformed_data 
 
 log("Load phase Started")
-load(targetfile,transformed_data)
+load(TARGETFILE, transformed_data)
 log("Load phase Ended")
 
 log("ETL Job Ended")

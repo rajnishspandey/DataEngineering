@@ -13,3 +13,78 @@
 2023-Nov-03-01:05:52,Extract phase Started
 2023-Nov-03-01:08:14,ETL Job Started
 2023-Nov-03-01:08:14,Extract phase Started
+2023-Nov-03-01:10:36,ETL Job Started
+2023-Nov-03-01:10:36,Extract phase Started
+2023-Nov-03-01:11:57,ETL Job Started
+2023-Nov-03-01:11:57,Extract phase Started
+2023-Nov-03-01:14:47,ETL Job Started
+2023-Nov-03-01:14:47,Extract phase Started
+2023-Nov-03-01:15:16,ETL Job Started
+2023-Nov-03-01:15:16,Extract phase Started
+2023-Nov-03-01:18:17,ETL Job Started
+2023-Nov-03-01:18:17,Extract phase Started
+2023-Nov-03-01:18:23,ETL Job Started
+2023-Nov-03-01:18:23,Extract phase Started
+2023-Nov-03-01:22:51,ETL Job Started
+2023-Nov-03-01:22:51,Extract phase Started
+2023-Nov-03-01:26:32,ETL Job Started
+2023-Nov-03-01:26:32,Extract phase Started
+2023-Nov-03-01:26:32,Error reading XML file source1.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:26:32,Error reading XML file source2.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:26:32,Error reading XML file source3.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:26:32,Extract phase Ended
+2023-Nov-03-01:26:32,Transform phase Started
+2023-Nov-03-01:26:32,Transform phase Ended
+2023-Nov-03-01:26:32,Load phase Started
+2023-Nov-03-01:26:32,Load phase Ended
+2023-Nov-03-01:26:32,ETL Job Ended
+2023-Nov-03-01:26:43,ETL Job Started
+2023-Nov-03-01:26:43,Extract phase Started
+2023-Nov-03-01:26:43,Error reading XML file source1.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:26:43,Error reading XML file source2.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:26:43,Error reading XML file source3.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:26:43,Extract phase Ended
+2023-Nov-03-01:26:43,Transform phase Started
+2023-Nov-03-01:26:43,Transform phase Ended
+2023-Nov-03-01:26:43,Load phase Started
+2023-Nov-03-01:26:43,Load phase Ended
+2023-Nov-03-01:26:43,ETL Job Ended
+2023-Nov-03-01:27:56,ETL Job Started
+2023-Nov-03-01:27:56,Extract phase Started
+2023-Nov-03-01:27:56,Error reading XML file source1.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:27:56,Error reading XML file source2.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:27:56,Error reading XML file source3.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:27:56,Extract phase Ended
+2023-Nov-03-01:27:56,Transform phase Started
+2023-Nov-03-01:27:56,Transform phase Ended
+2023-Nov-03-01:27:56,Load phase Started
+2023-Nov-03-01:27:56,Load phase Ended
+2023-Nov-03-01:27:56,ETL Job Ended
+2023-Nov-03-01:29:08,ETL Job Started
+2023-Nov-03-01:29:08,Extract phase Started
+2023-Nov-03-01:29:08,Error reading XML file source1.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:29:16,ETL Job Started
+2023-Nov-03-01:29:16,Extract phase Started
+2023-Nov-03-01:29:16,Error reading XML file source1.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:29:24,ETL Job Started
+2023-Nov-03-01:29:24,Extract phase Started
+2023-Nov-03-01:29:24,Error reading XML file source1.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:29:24,Error reading XML file source2.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:29:24,Error reading XML file source3.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:29:24,Extract phase Ended
+2023-Nov-03-01:29:24,Transform phase Started
+2023-Nov-03-01:29:24,Transform phase Ended
+2023-Nov-03-01:29:24,Load phase Started
+2023-Nov-03-01:29:24,Load phase Ended
+2023-Nov-03-01:29:24,ETL Job Ended
+2023-Nov-03-01:31:10,ETL Job Started
+2023-Nov-03-01:31:10,Extract phase Started
+2023-Nov-03-01:31:10,Error reading XML file ./source\source1.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:31:10,Error reading XML file ./source\source2.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:31:10,Error reading XML file ./source\source3.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:31:10,Extract phase Ended
+2023-Nov-03-01:31:10,Transform phase Started
+2023-Nov-03-01:31:10,Transform phase Ended
+2023-Nov-03-01:31:10,Load phase Started
+2023-Nov-03-01:31:10,Load phase Ended
+2023-Nov-03-01:31:10,ETL Job Ended
