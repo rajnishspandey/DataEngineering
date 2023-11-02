@@ -1,0 +1,29 @@
+2023-Nov-03-01:45:47,ETL Job Started
+2023-Nov-03-01:45:47,Extract phase Started
+2023-Nov-03-01:45:47,Extract phase Ended
+2023-Nov-03-01:45:47,Transform phase Started
+2023-Nov-03-01:45:47,Transform phase Ended
+2023-Nov-03-01:45:47,Load phase Started
+2023-Nov-03-01:45:47,Load phase Ended
+2023-Nov-03-01:45:47,ETL Job Ended
+2023-Nov-03-01:47:58,ETL Job Started
+2023-Nov-03-01:47:58,Extract phase Started
+2023-Nov-03-01:47:58,Extract phase Ended
+2023-Nov-03-01:47:58,Transform phase Started
+2023-Nov-03-01:47:58,Transform phase Ended
+2023-Nov-03-01:47:58,Load phase Started
+2023-Nov-03-01:47:58,Load phase Ended
+2023-Nov-03-01:47:58,ETL Job Ended
+2023-Nov-03-01:49:04,ETL Job Started
+2023-Nov-03-01:49:04,Extract phase Started
+2023-Nov-03-01:53:16,ETL Job Started
+2023-Nov-03-01:53:16,Extract phase Started
+2023-Nov-03-01:53:17,Error reading XML file ./datasource\used_car_prices1.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:53:17,Error reading XML file ./datasource\used_car_prices2.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:53:17,Error reading XML file ./datasource\used_car_prices3.xml: 'DataFrame' object has no attribute 'append'
+2023-Nov-03-01:53:17,Extract phase Ended
+2023-Nov-03-01:53:17,Transform phase Started
+2023-Nov-03-01:53:17,Transform phase Ended
+2023-Nov-03-01:53:17,Load phase Started
+2023-Nov-03-01:53:17,Load phase Ended
+2023-Nov-03-01:53:17,ETL Job Ended
